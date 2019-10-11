@@ -1,6 +1,7 @@
-const NobugCommentWebpackPlugin = require('./src/NobugCommentWebpackPlugin');
-
 const path = require('path');
+const NobugCommentWebpackPlugin = require('./src/NobugCommentWebpackPlugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
 module.exports = {
   mode: 'development',
   entry: {
@@ -14,7 +15,7 @@ module.exports = {
     chunkFilename: '[name]_chunk.js'
   },
   plugins: [
-    new NobugCommentWebpackPlugin()
+    new NobugCommentWebpackPlugin(),
   ],
   module: {
     rules: [{
