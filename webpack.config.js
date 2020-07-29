@@ -1,13 +1,14 @@
 const path = require('path');
-const NobugCommentWebpackPlugin = require('./src/NobugCommentWebpackPlugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const AdditionCommentWebpackPlugin = require('./plugins/AdditionCommentWebpackPlugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TestHooksOrderPlugin = require('./plugins/TestHooksOrderPlugin')
+
+console.log(__dirname)
 
 module.exports = {
   mode: 'development',
   entry: {
-    a: './example/a',
-    b: './example/b',
-    c: './example/c',
+    index: __dirname + '/src/index.js'
   },
   output: {
     path: __dirname + '/dist',
@@ -15,7 +16,10 @@ module.exports = {
     chunkFilename: '[name]_chunk.js'
   },
   plugins: [
-    new NobugCommentWebpackPlugin(),
+    new AdditionCommentWebpackPlugin({
+      type: 'NO_BUG'
+    }),
+    new TestHooksOrderPlugin()
   ],
   module: {
     rules: [{

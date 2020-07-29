@@ -5,7 +5,7 @@ const DEFAULT_OPTION = {
   comment: ''
 }
 
-class NobugCommentWebpackPlugin {
+class AdditionCommentWebpackPlugin {
   constructor(options = {}) {
     this.options = Object.assign(DEFAULT_OPTION, options);
     if (this.options.comment) {
@@ -38,4 +38,4 @@ class NobugCommentWebpackPlugin {
   }
 }
 
-module.exports = NobugCommentWebpackPlugin;
+module.exports = AdditionCommentWebpackPlugin;
